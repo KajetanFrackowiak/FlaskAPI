@@ -1,19 +1,18 @@
-<h1>Hello, {{ name|capitalize }}!</h1>
-{% if user %}
-Hello, {{ user }}!
-{% else %}
-Hello, Stranger!
-{% endif %}
-
-<ul>
-{% for comment in comments %}
-{{ render_comment(comment) }}
-{% endfor %}
-</ul>
-
-{% import 'macros.html' as macros %}
-<ul>
-{% for comment in comments %}
-{{ macros.render_comment(comment) }}
-{% endfor %}
-</ul>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Flasky</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flask-moment/0.9.1/flask-moment.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <p>Debug: {{current_time }}</p> <!-- Debug output -->
+    </div>
+</body>
+</html>
