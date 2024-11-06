@@ -1,18 +1,18 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Flasky</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.34/moment-timezone-with-data.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flask-moment/0.9.1/flask-moment.min.js"></script>
-</head>
-<body>
-    <div class="container">
-        <p>Debug: {{current_time }}</p> <!-- Debug output -->
-    </div>
-</body>
-</html>
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <p>Current time: {{ moment().format('LLL') }}</p>
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}</h1>
+    {% if not known %}
+    <p>Nice to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+</div>
+
+{{ wtf.quick_form(form) }}
+{% endblock %}
